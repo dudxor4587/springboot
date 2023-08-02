@@ -1,0 +1,250 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="me.kimyoungtaek.springboot.controller.BlogApiControllerTest" tests="5" skipped="0" failures="0" errors="0" timestamp="2023-07-20T12:12:27" hostname="adminui-noteubug-2.local" time="0.332">
+  <properties/>
+  <testcase name="deleteArticle: 블로그 글 삭제에 성공한다." classname="me.kimyoungtaek.springboot.controller.BlogApiControllerTest" time="0.244"/>
+  <testcase name="findArticle: 블로그 글 조회에 성공한다." classname="me.kimyoungtaek.springboot.controller.BlogApiControllerTest" time="0.037"/>
+  <testcase name="findAllArticles: 블로그 글 목록 조회에 성공한다." classname="me.kimyoungtaek.springboot.controller.BlogApiControllerTest" time="0.008"/>
+  <testcase name="addArticle: 블로그 글 추가에 성공한다." classname="me.kimyoungtaek.springboot.controller.BlogApiControllerTest" time="0.03"/>
+  <testcase name="updateArticle: 블로그 글 수정에 성공한다." classname="me.kimyoungtaek.springboot.controller.BlogApiControllerTest" time="0.01"/>
+  <system-out><![CDATA[21:12:25.917 [Test worker] DEBUG org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Neither @ContextConfiguration nor @ContextHierarchy found for test class [BlogApiControllerTest]: using SpringBootContextLoader
+21:12:25.921 [Test worker] DEBUG org.springframework.test.context.support.AbstractContextLoader - Could not detect default resource locations for test class [me.kimyoungtaek.springboot.controller.BlogApiControllerTest]: no resource found for suffixes {-context.xml, Context.groovy}.
+21:12:25.921 [Test worker] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils - Could not detect default configuration classes for test class [me.kimyoungtaek.springboot.controller.BlogApiControllerTest]: BlogApiControllerTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+21:12:25.941 [Test worker] DEBUG org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Using ContextCustomizers for test class [BlogApiControllerTest]: [DisableObservabilityContextCustomizer, PropertyMappingContextCustomizer, Customizer, ImportsContextCustomizer, ExcludeFilterContextCustomizer, DuplicateJsonObjectContextCustomizer, MockitoContextCustomizer, TestRestTemplateContextCustomizer]
+21:12:25.986 [Test worker] DEBUG org.springframework.context.annotation.ClassPathScanningCandidateComponentProvider - Identified candidate component class: file [/Users/admin/SpringBoot/build/classes/java/main/me/kimyoungtaek/springboot/SpringBootDeveloperApplication.class]
+21:12:25.986 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Found @SpringBootConfiguration me.kimyoungtaek.springboot.SpringBootDeveloperApplication for test class me.kimyoungtaek.springboot.controller.BlogApiControllerTest
+21:12:26.031 [Test worker] DEBUG org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Using TestExecutionListeners for test class [BlogApiControllerTest]: [ServletTestExecutionListener, DirtiesContextBeforeModesTestExecutionListener, ApplicationEventsTestExecutionListener, MockitoTestExecutionListener, DependencyInjectionTestExecutionListener, DirtiesContextTestExecutionListener, TransactionalTestExecutionListener, SqlScriptsTestExecutionListener, EventPublishingTestExecutionListener, RestDocsTestExecutionListener, MockRestServiceServerResetTestExecutionListener, MockMvcPrintOnlyOnFailureTestExecutionListener, WebDriverTestExecutionListener, MockWebServiceServerTestExecutionListener, ResetMocksTestExecutionListener]
+21:12:26.031 [Test worker] DEBUG org.springframework.test.context.support.AbstractDirtiesContextTestExecutionListener - Before test class: class [BlogApiControllerTest], class annotated with @DirtiesContext [false] with mode [null]
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::                (v3.0.2)
+
+2023-07-20T21:12:26.192+09:00  INFO 63324 --- [    Test worker] m.k.s.controller.BlogApiControllerTest   : Starting BlogApiControllerTest using Java 17.0.7 with PID 63324 (started by admin in /Users/admin/SpringBoot)
+2023-07-20T21:12:26.192+09:00  INFO 63324 --- [    Test worker] m.k.s.controller.BlogApiControllerTest   : No active profile set, falling back to 1 default profile: "default"
+2023-07-20T21:12:26.495+09:00  INFO 63324 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-07-20T21:12:26.527+09:00  INFO 63324 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 27 ms. Found 1 JPA repository interfaces.
+2023-07-20T21:12:26.720+09:00  INFO 63324 --- [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2023-07-20T21:12:26.825+09:00  INFO 63324 --- [    Test worker] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:testdb user=SA
+2023-07-20T21:12:26.826+09:00  INFO 63324 --- [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2023-07-20T21:12:26.852+09:00  INFO 63324 --- [    Test worker] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-07-20T21:12:26.877+09:00  INFO 63324 --- [    Test worker] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.1.6.Final
+2023-07-20T21:12:26.962+09:00  WARN 63324 --- [    Test worker] org.hibernate.orm.deprecation            : HHH90000021: Encountered deprecated setting [javax.persistence.sharedCache.mode], use [jakarta.persistence.sharedCache.mode] instead
+2023-07-20T21:12:27.028+09:00  INFO 63324 --- [    Test worker] SQL dialect                              : HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+Hibernate: 
+    
+    drop table if exists article cascade 
+Hibernate: 
+    
+    create table article (
+       id bigint generated by default as identity,
+        content varchar(255) not null,
+        title varchar(255) not null,
+        primary key (id)
+    )
+2023-07-20T21:12:27.368+09:00  INFO 63324 --- [    Test worker] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-07-20T21:12:27.373+09:00  INFO 63324 --- [    Test worker] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-07-20T21:12:27.589+09:00  WARN 63324 --- [    Test worker] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-07-20T21:12:27.755+09:00  INFO 63324 --- [    Test worker] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:h2:mem:testdb'
+2023-07-20T21:12:27.785+09:00  INFO 63324 --- [    Test worker] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2023-07-20T21:12:27.785+09:00  INFO 63324 --- [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2023-07-20T21:12:27.786+09:00  INFO 63324 --- [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 0 ms
+2023-07-20T21:12:27.807+09:00  INFO 63324 --- [    Test worker] m.k.s.controller.BlogApiControllerTest   : Started BlogApiControllerTest in 1.749 seconds (process running for 2.375)
+2023-07-20T21:12:27.899+09:00  INFO 63324 --- [    Test worker] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2023-07-20T21:12:27.899+09:00  INFO 63324 --- [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2023-07-20T21:12:27.900+09:00  INFO 63324 --- [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 1 ms
+Hibernate: 
+    select
+        a1_0.id,
+        a1_0.content,
+        a1_0.title 
+    from
+        article a1_0
+Hibernate: 
+    delete 
+    from
+        article 
+    where
+        id=?
+Hibernate: 
+    delete 
+    from
+        article 
+    where
+        id=?
+Hibernate: 
+    delete 
+    from
+        article 
+    where
+        id=?
+Hibernate: 
+    insert 
+    into
+        article
+        (id, content, title) 
+    values
+        (default, ?, ?)
+Hibernate: 
+    select
+        a1_0.id,
+        a1_0.content,
+        a1_0.title 
+    from
+        article a1_0 
+    where
+        a1_0.id=?
+Hibernate: 
+    delete 
+    from
+        article 
+    where
+        id=?
+Hibernate: 
+    select
+        a1_0.id,
+        a1_0.content,
+        a1_0.title 
+    from
+        article a1_0
+2023-07-20T21:12:28.063+09:00  INFO 63324 --- [    Test worker] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2023-07-20T21:12:28.063+09:00  INFO 63324 --- [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2023-07-20T21:12:28.064+09:00  INFO 63324 --- [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 0 ms
+Hibernate: 
+    select
+        a1_0.id,
+        a1_0.content,
+        a1_0.title 
+    from
+        article a1_0
+Hibernate: 
+    insert 
+    into
+        article
+        (id, content, title) 
+    values
+        (default, ?, ?)
+Hibernate: 
+    select
+        a1_0.id,
+        a1_0.content,
+        a1_0.title 
+    from
+        article a1_0 
+    where
+        a1_0.id=?
+2023-07-20T21:12:28.100+09:00  INFO 63324 --- [    Test worker] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2023-07-20T21:12:28.100+09:00  INFO 63324 --- [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2023-07-20T21:12:28.101+09:00  INFO 63324 --- [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 0 ms
+Hibernate: 
+    select
+        a1_0.id,
+        a1_0.content,
+        a1_0.title 
+    from
+        article a1_0
+Hibernate: 
+    delete 
+    from
+        article 
+    where
+        id=?
+Hibernate: 
+    insert 
+    into
+        article
+        (id, content, title) 
+    values
+        (default, ?, ?)
+Hibernate: 
+    select
+        a1_0.id,
+        a1_0.content,
+        a1_0.title 
+    from
+        article a1_0
+2023-07-20T21:12:28.109+09:00  INFO 63324 --- [    Test worker] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2023-07-20T21:12:28.109+09:00  INFO 63324 --- [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2023-07-20T21:12:28.109+09:00  INFO 63324 --- [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 0 ms
+Hibernate: 
+    select
+        a1_0.id,
+        a1_0.content,
+        a1_0.title 
+    from
+        article a1_0
+Hibernate: 
+    delete 
+    from
+        article 
+    where
+        id=?
+Hibernate: 
+    insert 
+    into
+        article
+        (id, content, title) 
+    values
+        (default, ?, ?)
+Hibernate: 
+    select
+        a1_0.id,
+        a1_0.content,
+        a1_0.title 
+    from
+        article a1_0
+2023-07-20T21:12:28.140+09:00  INFO 63324 --- [    Test worker] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2023-07-20T21:12:28.140+09:00  INFO 63324 --- [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2023-07-20T21:12:28.140+09:00  INFO 63324 --- [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 0 ms
+Hibernate: 
+    select
+        a1_0.id,
+        a1_0.content,
+        a1_0.title 
+    from
+        article a1_0
+Hibernate: 
+    delete 
+    from
+        article 
+    where
+        id=?
+Hibernate: 
+    insert 
+    into
+        article
+        (id, content, title) 
+    values
+        (default, ?, ?)
+Hibernate: 
+    select
+        a1_0.id,
+        a1_0.content,
+        a1_0.title 
+    from
+        article a1_0 
+    where
+        a1_0.id=?
+Hibernate: 
+    update
+        article 
+    set
+        content=?,
+        title=? 
+    where
+        id=?
+Hibernate: 
+    select
+        a1_0.id,
+        a1_0.content,
+        a1_0.title 
+    from
+        article a1_0 
+    where
+        a1_0.id=?
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
